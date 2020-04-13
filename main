@@ -1,0 +1,26 @@
+import requests
+import json
+import wikipedia
+
+wikipedia.set_lang("pt")
+while True:
+    pesquisa = input("Digite o que deseja pesquisar: ")
+
+
+
+    try:
+        wikipedia.page(pesquisa)
+        sumario = wikipedia.summary(pesquisa)
+        print("")
+
+        print(pesquisa)
+        print("")
+        print(sumario)
+        print("")
+    except:
+        print("")
+        print ("Não foi possível retornar um resultado. Talvez a página possa não existir, você pode ter digitado incorretamente ou você não foi específico o suficiente.")
+        print("")
+        print("Aqui estão alguns resultados semelhantes à sua pesquisa:")
+        print(wikipedia.search(pesquisa, results=3), "Digite corretamente o que você deseja pesquisar.")
+        print("")
